@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pertanyaan - Rekomendasi Jurusan Kuliah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-xl bg-white p-8 rounded-2xl shadow-xl">
+    <h2 class="text-2xl font-bold mb-6 text-center text-black tracking-wide">Yuk Isi Pertanyaan Berikut</h2>
+
+    <form action="hasil.html" method="GET" class="space-y-6">
+      
+      <!-- Nama -->
+      <div>
+        <label class="block font-medium text-gray-800 mb-2">Nama Lengkap Anda</label>
+        <input type="text" name="nama" required placeholder="Masukkan nama Anda"
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black" />
+      </div>
+
+      <!-- Minat -->
+      <div>
+        <label class="block font-medium text-gray-800 mb-2">1. Apa bidang yang paling Anda minati?</label>
+        <select name="minat" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
+          <option value="" disabled selected>Pilih minat Anda</option>
+          <option value="teknologi">Teknologi & Komputer</option>
+          <option value="bisnis">Bisnis & Ekonomi</option>
+          <option value="kesehatan">Kesehatan & Medis</option>
+          <option value="seni">Seni & Desain</option>
+          <option value="sosial">Ilmu Sosial & Hukum</option>
+        </select>
+      </div>
+
+      <!-- Kepribadian -->
+      <div>
+        <label class="block font-medium text-gray-800 mb-2">2. Bagaimana kepribadian Anda?</label>
+        <select name="kepribadian" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
+          <option value="" disabled selected>Pilih kepribadian Anda</option>
+          <option value="introvert">Introvert</option>
+          <option value="ekstrovert">Ekstrovert</option>
+        </select>
+      </div>
+
+      <!-- Gaya Belajar -->
+      <div>
+        <label class="block font-medium text-gray-800 mb-2">3. Gaya belajar Anda lebih cocok yang seperti apa?</label>
+        <select name="gaya_belajar" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
+          <option value="" disabled selected>Pilih gaya belajar Anda</option>
+          <option value="praktik">Lebih suka praktik langsung</option>
+          <option value="teori">Lebih suka teori dan membaca</option>
+          <option value="kolaboratif">Suka diskusi dan kerja tim</option>
+        </select>
+      </div>
+
+      <!-- Nilai Unggulan -->
+      <div>
+        <label class="block font-medium text-gray-800 mb-2">4. Apa nilai pelajaran unggulan Anda?</label>
+        <select name="nilai_unggulan" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
+          <option value="" disabled selected>Pilih nilai unggulan Anda</option>
+          <option value="matematika">Matematika</option>
+          <option value="seni">Seni</option>
+          <option value="bahasa">Bahasa</option>
+          <option value="biologi">Biologi</option>
+        </select>
+      </div>
+
+      <!-- Tombol Submit -->
+      <div class="text-center pt-4">
+        <button type="submit" class="bg-black text-white px-8 py-3 rounded-full font-semibold tracking-wide shadow-md hover:bg-gray-800 transition duration-300">
+          Lihat Jurusan yang Cocok
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

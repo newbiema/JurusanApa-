@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Pakar Jurusan Kuliah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900">
+<!-- Navbar Monokrom Modern -->
+<nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="text-2xl font-extrabold text-black flex items-center gap-3 tracking-wide">
+      <i class="fas fa-microchip text-xl text-gray-800"></i>
+      <span>JurusanApa?</span>
+    </div>
+    <!-- Menu Desktop -->
+    <div class="hidden md:flex items-center space-x-10">
+      <a href="#fitur" class="text-gray-700 hover:text-black font-medium transition-all duration-200 hover:underline underline-offset-4">Fitur</a>
+      <a href="#cara-kerja" class="text-gray-700 hover:text-black font-medium transition-all duration-200 hover:underline underline-offset-4">Cara Kerja</a>
+      <a href="#kontak" class="text-gray-700 hover:text-black font-medium transition-all duration-200 hover:underline underline-offset-4">Kontak</a>
+    </div>
+    <!-- Tombol CTA -->
+    <a href="pertanyaan.html" class="hidden md:inline-block bg-black text-white px-6 py-2 rounded-full font-medium shadow-md hover:bg-gray-900 transition-all duration-300">
+      Konsultasi
+    </a>
+    <!-- Menu Mobile Button -->
+    <div class="md:hidden">
+      <button id="menu-btn" class="text-black text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+    <a href="#fitur" class="block text-gray-800 py-2 hover:text-black transition-all duration-200">Fitur</a>
+    <a href="#cara-kerja" class="block text-gray-800 py-2 hover:text-black transition-all duration-200">Cara Kerja</a>
+    <a href="#kontak" class="block text-gray-800 py-2 hover:text-black transition-all duration-200">Kontak</a>
+    <a href="pertanyaan.html" class="block mt-3 text-center bg-black text-white py-2 rounded-full hover:bg-gray-900 transition-all duration-300">Konsultasi</a>
+  </div>
+</nav>
+
+
+
+<!-- Header -->
+<section class="py-24 bg-gradient-to-br from-[#eef2f3] to-white">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-16">
+
+    <!-- Konten Kiri -->
+    <div data-aos="fade-right" data-aos-duration="1000" class="space-y-6 text-center md:text-left">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        Temukan <br />
+        <span id="typed-text" class="bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">Jurusan Terbaikmu</span>
+      </h1>
+      <p class="text-gray-600 text-lg">
+        Sistem pakar berbasis AI untuk rekomendasi jurusan kuliah sesuai minat, bakat, dan kepribadianmu.
+      </p>
+
+      <!-- Fitur -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+        <div class="flex items-center gap-4">
+          <div class="bg-blue-600 text-white rounded-full p-3 shadow-md">
+            <i class="fas fa-robot fa-lg"></i>
+          </div>
+          <span class="font-medium text-gray-800">Analisis Otomatis</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="bg-green-600 text-white rounded-full p-3 shadow-md">
+            <i class="fas fa-wallet fa-lg"></i>
+          </div>
+          <span class="font-medium text-gray-800">Anggaran Efisien</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="bg-pink-600 text-white rounded-full p-3 shadow-md">
+            <i class="fas fa-headset fa-lg"></i>
+          </div>
+          <span class="font-medium text-gray-800">Konsultasi Langsung</span>
+        </div>
+      </div>
+
+      <!-- Tombol CTA -->
+      <a href="pertanyaan.html"
+         class="mt-6 inline-block bg-black text-white px-8 py-3 rounded-full text-lg font-semibold
+                transition duration-300 transform hover:scale-105 hover:bg-gray-900 shadow-lg
+                active:scale-95">
+        Mulai Konsultasi
+      </a>
+    </div>
+
+    <!-- Gambar -->
+    <div data-aos="fade-left" data-aos-duration="1000" class="flex justify-center md:justify-end">
+      <img 
+        src="img/hero.jpg" 
+        alt="Ilustrasi Gadget"
+        class="w-full max-w-md mx-auto transition-transform duration-500 ease-in-out hover:scale-105 rounded-xl shadow-xl"
+      />
+    </div>
+  </div>
+</section>
+
+
+
+<section id="fitur" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-16 text-gray-900" data-aos="fade-up" data-aos-duration="1000">Fitur Unggulan</h2>
+    
+    <div class="grid md:grid-cols-3 gap-10 text-center">
+      
+      <div 
+        class="bg-gray-100 p-8 rounded-xl shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 cursor-pointer"
+        data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-once="true"
+      >
+        <i class="fas fa-bolt text-5xl text-gray-700 mb-6"></i>
+        <h3 class="text-2xl font-semibold mb-3 text-gray-900">Cepat & Akurat</h3>
+        <p class="text-gray-600 leading-relaxed">Hasil rekomendasi instan berdasarkan pengetahuan pakar.</p>
+      </div>
+      
+      <div 
+        class="bg-gray-100 p-8 rounded-xl shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 cursor-pointer"
+        data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-once="true"
+      >
+        <i class="fas fa-laptop-code text-5xl text-gray-700 mb-6"></i>
+        <h3 class="text-2xl font-semibold mb-3 text-gray-900">Responsif</h3>
+        <p class="text-gray-600 leading-relaxed">Desain mobile-friendly, bisa diakses dari perangkat apapun.</p>
+      </div>
+      
+      <div 
+        class="bg-gray-100 p-8 rounded-xl shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300 cursor-pointer"
+        data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-once="true"
+      >
+        <i class="fas fa-shield-alt text-5xl text-gray-700 mb-6"></i>
+        <h3 class="text-2xl font-semibold mb-3 text-gray-900">Privasi Aman</h3>
+        <p class="text-gray-600 leading-relaxed">Data Anda tidak disimpan, aman dan rahasia.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+
+<section id="cara-kerja" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 items-center gap-12">
+
+    <!-- Ilustrasi -->
+    <div class="flex justify-center md:justify-start" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+      <img 
+        src="https://cdn.botpenguin.com/assets/website/Forward_Chaining_048182bf44.webp" 
+        alt="Ilustrasi Proses" 
+        class="w-full max-w-md mx-auto transition-transform duration-300 hover:scale-105 filter grayscale contrast-125"
+      />
+    </div>
+
+    <!-- Teks -->
+    <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+      <h2 class="text-4xl font-bold mb-6 text-gray-900 leading-snug">
+        Cara Kerja Sistem
+      </h2>
+      <ol class="space-y-6 text-gray-700 text-lg list-decimal list-inside marker:text-black font-medium">
+        <li>Jawab pertanyaan seputar minat, bakat, dan kepribadian Anda.</li>
+        <li>Sistem kami menganalisis jawaban menggunakan metode <span class="font-semibold text-black">Forward Chaining</span>.</li>
+        <li>Dapatkan rekomendasi jurusan kuliah yang sesuai dengan profil Anda.</li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-black text-white text-center font-poppins">
+  <h2 class="text-4xl font-bold mb-4 tracking-wide leading-tight">
+    Siap Memulai Perjalananmu?
+  </h2>
+  <p class="mb-8 text-lg text-gray-300 max-w-xl mx-auto">
+    Yuk mulai konsultasi sekarang dan temukan jurusan kuliah terbaik yang cocok untuk kamu!
+  </p>
+  <a href="pertanyaan.html" 
+     class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold tracking-wide 
+            uppercase shadow-md hover:bg-gray-200 transition-all duration-300 hover:scale-105 active:scale-95">
+    Mulai Sekarang
+  </a>
+</section>
+
+
+  <!-- Footer -->
+  <footer id="kontak" class="bg-white py-6 text-center border-t text-sm text-gray-500">
+    <p>&copy; 2025 Sistem Pakar Gadget. Dibuat dengan ❤️ oleh Evan.</p>
+  </footer>
+
+
+    <script>
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>  
+<!-- Tambahkan di akhir body -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="typing.js"></script>
+</body>
+</html>
