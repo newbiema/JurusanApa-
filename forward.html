@@ -5,25 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pertanyaan - Rekomendasi Jurusan Kuliah</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@heroicons/vue@2.0.18/dist/heroicons.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
   <div class="w-full max-w-xl bg-white p-8 rounded-2xl shadow-xl">
-    <h2 class="text-2xl font-bold mb-6 text-center text-black tracking-wide">Yuk Isi Pertanyaan Berikut</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center text-black tracking-wide">🎓 Yuk Isi Pertanyaan Berikut</h2>
 
     <form action="hasil_foward.html" method="GET" class="space-y-6">
-      
+
       <!-- Nama -->
       <div>
-        <label class="block font-medium text-gray-800 mb-2">Nama Lengkap Anda</label>
+        <label class="block font-medium text-gray-800 mb-2">
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5.121 17.804A9 9 0 1118.88 6.196 9 9 0 015.12 17.804z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Nama Lengkap Anda
+          </span>
+        </label>
         <input type="text" name="nama" required placeholder="Masukkan nama Anda"
           class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black" />
       </div>
 
       <!-- Minat -->
       <div>
-        <label class="block font-medium text-gray-800 mb-2">1. Apa bidang yang paling Anda minati?</label>
+        <label class="block font-medium text-gray-800 mb-2">
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 4v16m8-8H4" />
+            </svg>
+            1. Apa bidang yang paling Anda minati?
+          </span>
+        </label>
         <select name="minat" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
           <option value="" disabled selected>Pilih minat Anda</option>
           <option value="teknologi">Teknologi & Komputer</option>
@@ -36,7 +57,18 @@
 
       <!-- Kepribadian -->
       <div>
-        <label class="block font-medium text-gray-800 mb-2">2. Bagaimana kepribadian Anda?</label>
+        <label class="block font-medium text-gray-800 mb-2">
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5.121 17.804A9 9 0 1118.88 6.196 9 9 0 015.12 17.804z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            2. Bagaimana kepribadian Anda?
+          </span>
+        </label>
         <select name="kepribadian" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
           <option value="" disabled selected>Pilih kepribadian Anda</option>
           <option value="introvert">Introvert</option>
@@ -46,7 +78,18 @@
 
       <!-- Gaya Belajar -->
       <div>
-        <label class="block font-medium text-gray-800 mb-2">3. Gaya belajar Anda lebih cocok yang seperti apa?</label>
+        <label class="block font-medium text-gray-800 mb-2">
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 14l6.16-3.422A12.082 12.082 0 0118 14.5c0 3.084-2.689 5.5-6 5.5s-6-2.416-6-5.5a12.082 12.082 0 01-.16-.922L12 14z" />
+            </svg>
+            3. Gaya belajar Anda lebih cocok yang seperti apa?
+          </span>
+        </label>
         <select name="gaya_belajar" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
           <option value="" disabled selected>Pilih gaya belajar Anda</option>
           <option value="praktik">Lebih suka praktik langsung</option>
@@ -57,7 +100,20 @@
 
       <!-- Nilai Unggulan -->
       <div>
-        <label class="block font-medium text-gray-800 mb-2">4. Apa nilai pelajaran unggulan Anda?</label>
+        <label class="block font-medium text-gray-800 mb-2">
+          <span class="inline-flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 20h9" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 4h9" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 12h16" />
+            </svg>
+            4. Apa nilai pelajaran unggulan Anda?
+          </span>
+        </label>
         <select name="nilai_unggulan" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black">
           <option value="" disabled selected>Pilih nilai unggulan Anda</option>
           <option value="matematika">Matematika</option>
@@ -69,7 +125,13 @@
 
       <!-- Tombol Submit -->
       <div class="text-center pt-4">
-        <button type="submit" class="bg-black text-white px-8 py-3 rounded-full font-semibold tracking-wide shadow-md hover:bg-gray-800 transition duration-300">
+        <button type="submit"
+          class="bg-black text-white px-8 py-3 rounded-full font-semibold tracking-wide shadow-md hover:bg-gray-800 transition duration-300 inline-flex items-center gap-2">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
           Lihat Jurusan yang Cocok
         </button>
       </div>
