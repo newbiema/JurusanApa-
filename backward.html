@@ -2,143 +2,126 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rekomendasi Jurusan (Backward + Fallback)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backward Chaining - Jurusan</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-blue-100 min-h-screen flex items-center justify-center p-6">
-  <div class="bg-white p-8 rounded-xl shadow-xl max-w-xl w-full text-center">
-    <h1 class="text-3xl font-bold text-purple-700 mb-4">Halo, <span id="nama"></span>!</h1>
-    <h2 class="text-xl mb-6 font-semibold text-gray-800">Rekomendasi Jurusan Terbaik Untukmu:</h2>
-    <p class="text-2xl font-bold text-blue-600" id="hasil">Memproses...</p>
-    <p class="mt-4 text-gray-600" id="alasan"></p>
-    <div class="mt-6" id="fallbackSection"></div>
-    <a href="index.html" class="inline-block mt-8 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">Kembali</a>
+<body class="bg-gradient-to-br from-blue-100 via-white to-blue-50 min-h-screen flex items-center justify-center p-6">
+
+  <div class="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-md transition-all duration-300 border border-blue-100">
+    <div class="flex flex-col items-center mb-6">
+      <i class="fas fa-brain text-blue-600 text-4xl mb-2 animate-pulse"></i>
+      <h1 class="text-3xl font-bold text-blue-700 text-center">Backward Chaining</h1>
+      <p class="text-gray-500 text-sm text-center">Cari tahu kecocokanmu dengan jurusan kuliah 🎓</p>
+    </div>
+
+    <label for="jurusanSelect" class="block text-gray-700 mb-2 font-semibold">
+      <i class="fas fa-graduation-cap mr-2 text-blue-500"></i> Pilih Jurusan:
+    </label>
+    <select id="jurusanSelect" class="w-full border border-gray-300 rounded-lg p-3 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-400 transition">
+      <option value="Teknik Informatika">Teknik Informatika</option>
+      <option value="Akuntansi">Akuntansi</option>
+      <option value="Desain Komunikasi Visual">Desain Komunikasi Visual</option>
+      <option value="Kedokteran">Kedokteran</option>
+      <option value="Hukum">Hukum</option>
+      <option value="Psikologi">Psikologi</option>
+    </select>
+
+    <button onclick="checkJurusan()" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:to-blue-800 text-white py-3 rounded-xl text-lg font-semibold shadow-md transition-all duration-300 flex items-center justify-center gap-2">
+      <i class="fas fa-search"></i> Cek Kecocokan
+    </button>
+
+    <div id="pertanyaan" class="text-center mt-8"></div>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const nama = params.get("nama") || "Teman";
-    const minat = params.get("minat");
-    const kepribadian = params.get("kepribadian");
-    const gayaBelajar = params.get("gaya_belajar");
-    const nilaiUnggulan = params.get("nilai_unggulan");
-
-    document.getElementById("nama").textContent = nama;
-
-    const goals = [
+    const rules = [
       {
         jurusan: "Teknik Informatika",
-        syarat: {
-          minat: "teknologi",
-          kepribadian: "introvert",
-          gayaBelajar: "praktik",
-          nilaiUnggulan: "matematika",
-        },
-        alasan: "Karena kamu menyukai teknologi, belajar praktik, dan unggul dalam matematika.",
+        conditions: ["suka komputer", "logika bagus", "suka ngoding"]
       },
       {
-        jurusan: "Sistem Informasi",
-        syarat: {
-          minat: "teknologi",
-          kepribadian: "ekstrovert",
-          gayaBelajar: "kolaboratif",
-          nilaiUnggulan: "matematika",
-        },
-        alasan: "Kamu menyukai teknologi dan bekerja dalam tim dengan kemampuan matematika yang baik.",
+        jurusan: "Akuntansi",
+        conditions: ["suka hitung", "rapi", "suka ekonomi"]
       },
       {
-        jurusan: "DKV (Desain Komunikasi Visual)",
-        syarat: {
-          minat: "seni",
-          kepribadian: "ekstrovert",
-          gayaBelajar: "praktik",
-          nilaiUnggulan: "seni",
-        },
-        alasan: "Kamu ekspresif, suka seni, dan belajar dengan praktik langsung.",
+        jurusan: "Desain Komunikasi Visual",
+        conditions: ["kreatif", "suka gambar", "suka warna"]
+      },
+      {
+        jurusan: "Kedokteran",
+        conditions: ["suka biologi", "empati tinggi", "suka membantu orang"]
+      },
+      {
+        jurusan: "Hukum",
+        conditions: ["suka debat", "percaya diri", "suka membaca"]
       },
       {
         jurusan: "Psikologi",
-        syarat: {
-          minat: "sosial",
-          kepribadian: "introvert",
-          gayaBelajar: "teori",
-          nilaiUnggulan: "bahasa",
-        },
-        alasan: "Kamu suka memahami manusia dan unggul dalam teori dan bahasa.",
-      },
-      {
-        jurusan: "Farmasi",
-        syarat: {
-          minat: "kesehatan",
-          kepribadian: "introvert",
-          gayaBelajar: "praktik",
-          nilaiUnggulan: "biologi",
-        },
-        alasan: "Kamu suka praktik dan unggul dalam ilmu biologi serta kesehatan.",
-      },
-      {
-        jurusan: "Hubungan Internasional",
-        syarat: {
-          minat: "sosial",
-          kepribadian: "ekstrovert",
-          gayaBelajar: "praktik",
-          nilaiUnggulan: "bahasa",
-        },
-        alasan: "Kamu sosial, suka praktik, dan pandai berbahasa.",
+        conditions: ["empati tinggi", "suka mendengar", "suka memahami orang lain"]
       }
     ];
 
-    let jurusanDitemukan = null;
+    let selectedJurusan;
+    let kondisiDiperlukan = [];
+    let jawabanPengguna = [];
 
-    // Backward chaining utama (semua syarat cocok)
-    for (const goal of goals) {
-      const s = goal.syarat;
-      if (
-        s.minat === minat &&
-        s.kepribadian === kepribadian &&
-        s.gayaBelajar === gayaBelajar &&
-        s.nilaiUnggulan === nilaiUnggulan
-      ) {
-        jurusanDitemukan = goal;
-        break;
-      }
+    function backwardChaining(jurusan, userAnswers) {
+      const rule = rules.find(r => r.jurusan === jurusan);
+      if (!rule) return false;
+      return rule.conditions.every(cond => userAnswers.includes(cond));
     }
 
-    const hasilElem = document.getElementById("hasil");
-    const alasanElem = document.getElementById("alasan");
-    const fallbackElem = document.getElementById("fallbackSection");
-
-    if (jurusanDitemukan) {
-      hasilElem.textContent = jurusanDitemukan.jurusan;
-      alasanElem.textContent = jurusanDitemukan.alasan;
-    } else {
-      hasilElem.textContent = "Belum ada jurusan yang 100% cocok.";
-      alasanElem.textContent = "Namun berikut beberapa jurusan yang mendekati pilihanmu:";
-
-      // Fallback: cari jurusan dengan minimal 2 kecocokan
-      const fallbackList = goals.map(goal => {
-        const s = goal.syarat;
-        let score = 0;
-        if (s.minat === minat) score++;
-        if (s.kepribadian === kepribadian) score++;
-        if (s.gayaBelajar === gayaBelajar) score++;
-        if (s.nilaiUnggulan === nilaiUnggulan) score++;
-        return { ...goal, score };
-      }).filter(item => item.score >= 2) // minimal 2 kecocokan
-        .sort((a, b) => b.score - a.score);
-
-      if (fallbackList.length > 0) {
-        const listHTML = fallbackList.map(item => `
-          <div class="mt-4 text-left">
-            <h3 class="text-lg font-semibold text-blue-700">${item.jurusan}</h3>
-            <p class="text-sm text-gray-600">${item.alasan} (Kecocokan: ${item.score}/4)</p>
-          </div>
-        `).join('');
-        fallbackElem.innerHTML = listHTML;
-      } else {
-        fallbackElem.innerHTML = `<p class="text-red-600 mt-4">Belum ada jurusan yang mendekati kriteria kamu.</p>`;
+    function checkJurusan() {
+      selectedJurusan = document.getElementById("jurusanSelect").value;
+      const rule = rules.find(r => r.jurusan === selectedJurusan);
+      if (!rule) {
+        alert("Jurusan tidak ditemukan.");
+        return;
       }
+      kondisiDiperlukan = rule.conditions;
+      jawabanPengguna = [];
+      tampilkanPertanyaan(0);
+    }
+
+    function tampilkanPertanyaan(index) {
+      const container = document.getElementById("pertanyaan");
+      if (index >= kondisiDiperlukan.length) {
+        const hasil = backwardChaining(selectedJurusan, jawabanPengguna);
+        container.innerHTML = hasil
+          ? `<p class='text-green-600 font-bold text-xl animate-bounce'><i class="fas fa-check-circle text-2xl mr-2"></i> Kamu <span class="underline">cocok</span> di jurusan <span class="underline">${selectedJurusan}</span>!</p>`
+          : `<p class='text-red-600 font-bold text-xl animate-pulse'><i class="fas fa-times-circle text-2xl mr-2"></i> Kamu <span class="underline">belum cocok</span> untuk <span class="underline">${selectedJurusan}</span>.</p>`;
+        return;
+      }
+
+      const kondisi = kondisiDiperlukan[index];
+      container.innerHTML = `
+        <div class="mb-4">
+          <p class="text-lg font-medium"><i class="fas fa-question-circle text-blue-500 mr-2"></i>Apakah kamu <span class="text-blue-600 font-semibold">${kondisi}</span>?</p>
+        </div>
+        <div class="flex justify-center gap-6 mt-4">
+          <button onclick="jawab(true, ${index})" class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-full font-semibold shadow transition duration-300 transform hover:scale-105">
+            <i class="fas fa-thumbs-up mr-2"></i>Ya
+          </button>
+          <button onclick="jawab(false, ${index})" class="bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-full font-semibold shadow transition duration-300 transform hover:scale-105">
+            <i class="fas fa-thumbs-down mr-2"></i>Tidak
+          </button>
+        </div>
+      `;
+    }
+
+    function jawab(ya, index) {
+      if (ya) {
+        jawabanPengguna.push(kondisiDiperlukan[index]);
+      }
+      tampilkanPertanyaan(index + 1);
     }
   </script>
 </body>

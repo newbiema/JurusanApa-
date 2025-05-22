@@ -11,7 +11,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white text-gray-900">
-<!-- Navbar Monokrom Modern -->
+<!-- Navbar dengan Dropdown Klik -->
 <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <!-- Logo -->
@@ -19,17 +19,34 @@
       <i class="fas fa-microchip text-xl text-gray-800"></i>
       <span>JurusanApa?</span>
     </div>
+
     <!-- Menu Desktop -->
-    <div class="hidden md:flex items-center space-x-10">
-      <a href="#fitur" class="text-gray-700 hover:text-black font-medium transition-all duration-200 hover:underline underline-offset-4">Fitur</a>
-      <a href="#cara-kerja" class="text-gray-700 hover:text-black font-medium transition-all duration-200 hover:underline underline-offset-4">Cara Kerja</a>
-      <a href="#kontak" class="text-gray-700 hover:text-black font-medium transition-all duration-200 hover:underline underline-offset-4">Kontak</a>
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#fitur" class="text-gray-700 hover:text-black font-medium transition hover:underline underline-offset-4">Fitur</a>
+      <a href="#cara-kerja" class="text-gray-700 hover:text-black font-medium transition hover:underline underline-offset-4">Cara Kerja</a>
+
+      <!-- Dropdown Metode (Klik) -->
+      <div class="relative">
+        <button id="metode-btn" class="flex items-center gap-2 text-gray-700 hover:text-black font-medium transition focus:outline-none">
+          Metode
+          <i class="fas fa-chevron-down text-sm"></i>
+        </button>
+        <div id="metode-dropdown" class="absolute hidden bg-white shadow-lg rounded-lg py-2 w-52 mt-2 z-40">
+          <a href="forward.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+            <i class="fas fa-arrow-right mr-2 text-blue-500"></i> Forward Chaining
+          </a>
+          <a href="backward.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+            <i class="fas fa-arrow-left mr-2 text-indigo-500"></i> Backward Chaining
+          </a>
+        </div>
+      </div>
+
+      <a href="#kontak" class="text-gray-700 hover:text-black font-medium transition hover:underline underline-offset-4">Kontak</a>
     </div>
-    <!-- Tombol CTA -->
-    <a href="pertanyaan.html" class="hidden md:inline-block bg-black text-white px-6 py-2 rounded-full font-medium shadow-md hover:bg-gray-900 transition-all duration-300">
-      Konsultasi
-    </a>
-    <!-- Menu Mobile Button -->
+
+
+
+    <!-- Hamburger -->
     <div class="md:hidden">
       <button id="menu-btn" class="text-black text-2xl focus:outline-none">
         <i class="fas fa-bars"></i>
@@ -37,16 +54,24 @@
     </div>
   </div>
 
-  <!-- Menu Mobile -->
-  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-    <a href="#fitur" class="block text-gray-800 py-2 hover:text-black transition-all duration-200">Fitur</a>
-    <a href="#cara-kerja" class="block text-gray-800 py-2 hover:text-black transition-all duration-200">Cara Kerja</a>
-    <a href="#kontak" class="block text-gray-800 py-2 hover:text-black transition-all duration-200">Kontak</a>
-    <a href="pertanyaan.html" class="block mt-3 text-center bg-black text-white py-2 rounded-full hover:bg-gray-900 transition-all duration-300">Konsultasi</a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-1">
+    <a href="#fitur" class="block text-gray-800 py-2 hover:text-black transition">Fitur</a>
+    <a href="#cara-kerja" class="block text-gray-800 py-2 hover:text-black transition">Cara Kerja</a>
+
+    <div class="border-t border-gray-200 pt-2">
+      <p class="text-gray-500 text-sm mb-1">Metode:</p>
+      <a href="forward.html" class="block text-sm text-gray-700 py-1 hover:text-black transition">
+        <i class="fas fa-arrow-right mr-1 text-blue-500"></i> Forward Chaining
+      </a>
+      <a href="backward.html" class="block text-sm text-gray-700 py-1 hover:text-black transition">
+        <i class="fas fa-arrow-left mr-1 text-indigo-500"></i> Backward Chaining
+      </a>
+    </div>
+
+    <a href="#kontak" class="block text-gray-800 py-2 hover:text-black transition">Kontak</a>
   </div>
 </nav>
-
-
 
 <!-- Header -->
 <section class="py-24 bg-gradient-to-br from-[#eef2f3] to-white">
@@ -85,12 +110,25 @@
       </div>
 
       <!-- Tombol CTA -->
-      <a href="pertanyaan.html"
-         class="mt-6 inline-block bg-black text-white px-8 py-3 rounded-full text-lg font-semibold
-                transition duration-300 transform hover:scale-105 hover:bg-gray-900 shadow-lg
-                active:scale-95">
-        Mulai Konsultasi
-      </a>
+      <div class="space-y-4 mt-8">
+        <h3 class="text-lg font-semibold text-gray-800">Pilih Metode Konsultasi:</h3>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <!-- Forward Chaining -->
+          <a href="forward.html"
+            class="flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300 shadow-md">
+            <i class="fas fa-arrow-right"></i>
+            Forward Chaining
+          </a>
+
+          <!-- Backward Chaining -->
+          <a href="backward.html"
+            class="flex items-center gap-3 bg-indigo-600 text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-700 transition duration-300 shadow-md">
+            <i class="fas fa-arrow-left"></i>
+            Backward Chaining
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- Gambar -->
@@ -144,68 +182,102 @@
 </section>
 
 
+<section id="cara-kerja" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6 space-y-16">
 
-<section id="cara-kerja" class="py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 items-center gap-12">
-
-    <!-- Ilustrasi -->
-    <div class="flex justify-center md:justify-start" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
-      <img 
-        src="https://cdn.botpenguin.com/assets/website/Forward_Chaining_048182bf44.webp" 
-        alt="Ilustrasi Proses" 
-        class="w-full max-w-md mx-auto transition-transform duration-300 hover:scale-105 filter grayscale contrast-125"
-      />
+    <!-- Judul -->
+    <div class="text-center" data-aos="fade-down" data-aos-duration="800">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Cara Kerja Sistem</h2>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        Sistem kami menyediakan dua metode berbasis AI yang dapat Anda pilih sesuai kenyamanan untuk menentukan jurusan kuliah terbaik.
+      </p>
     </div>
 
-    <!-- Teks -->
-    <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
-      <h2 class="text-4xl font-bold mb-6 text-gray-900 leading-snug">
-        Cara Kerja Sistem
-      </h2>
-      <ol class="space-y-6 text-gray-700 text-lg list-decimal list-inside marker:text-black font-medium">
-        <li>Jawab pertanyaan seputar minat, bakat, dan kepribadian Anda.</li>
-        <li>Sistem kami menganalisis jawaban menggunakan metode <span class="font-semibold text-black">Forward Chaining</span>.</li>
-        <li>Dapatkan rekomendasi jurusan kuliah yang sesuai dengan profil Anda.</li>
-      </ol>
-    </div>
+    <!-- Dua Metode -->
+    <div class="grid md:grid-cols-2 gap-12">
 
+      <!-- Forward Chaining -->
+      <div class="bg-gray-50 p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up-right" data-aos-duration="1000">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-blue-100 text-blue-600 p-3 rounded-full text-xl shadow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-blue-700">Forward Chaining</h3>
+        </div>
+        <img 
+          src="https://cdn.botpenguin.com/assets/website/Forward_Chaining_048182bf44.webp" 
+          alt="Ilustrasi Forward Chaining" 
+          class="w-full rounded-xl mb-6 transition-transform duration-300 hover:scale-105 grayscale hover:grayscale-0 shadow"
+        />
+        <ol class="list-decimal list-inside text-gray-700 text-lg space-y-3 font-medium">
+          <li>Jawab pertanyaan tentang minat, bakat, dan kepribadian Anda.</li>
+          <li>Sistem menelusuri data dari awal untuk menyimpulkan jurusan yang cocok.</li>
+          <li>Dapatkan hasil akhir berdasarkan data yang Anda masukkan.</li>
+        </ol>
+      </div>
+
+      <!-- Backward Chaining -->
+      <div class="bg-gray-50 p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up-left" data-aos-duration="1000">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full text-xl shadow">
+            <i class="fas fa-arrow-left"></i>
+          </div>
+          <h3 class="text-2xl font-semibold text-indigo-700">Backward Chaining</h3>
+        </div>
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/2721/2721292.png" 
+          alt="Ilustrasi Backward Chaining" 
+          class="w-full rounded-xl mb-6 transition-transform duration-300 hover:scale-105 grayscale hover:grayscale-0 shadow"
+        />
+        <ol class="list-decimal list-inside text-gray-700 text-lg space-y-3 font-medium">
+          <li>Pilih jurusan yang Anda minati terlebih dahulu.</li>
+          <li>Sistem mencocokkan minat dengan data yang ada secara mundur.</li>
+          <li>Diberikan hasil apakah jurusan tersebut cocok untuk Anda.</li>
+        </ol>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="py-20 bg-black text-white text-center font-poppins">
-  <h2 class="text-4xl font-bold mb-4 tracking-wide leading-tight">
-    Siap Memulai Perjalananmu?
-  </h2>
-  <p class="mb-8 text-lg text-gray-300 max-w-xl mx-auto">
-    Yuk mulai konsultasi sekarang dan temukan jurusan kuliah terbaik yang cocok untuk kamu!
-  </p>
-  <a href="pertanyaan.html" 
-     class="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold tracking-wide 
-            uppercase shadow-md hover:bg-gray-200 transition-all duration-300 hover:scale-105 active:scale-95">
-    Mulai Sekarang
-  </a>
-</section>
 
 
-  <!-- Footer -->
-  <footer id="kontak" class="bg-white py-6 text-center border-t text-sm text-gray-500">
-    <p>&copy; 2025 Sistem Pakar Gadget. Dibuat dengan ❤️ oleh Evan.</p>
-  </footer>
 
+<!-- Footer -->
+<footer id="kontak" class="bg-gray-50 pt-10 pb-6 border-t border-gray-200">
+  <div class="max-w-6xl mx-auto px-6 text-center space-y-6">
 
-    <script>
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    </script>  
-<!-- Tambahkan di akhir body -->
+    <!-- Nama & Deskripsi -->
+    <div class="text-2xl font-extrabold text-black items-center gap-3 tracking-wide">
+      <i class="fas fa-microchip text-xl text-gray-800"></i>
+      <span>JurusanApa?</span>
+    </div>
+
+    <!-- Icon Sosial Media -->
+    <div class="flex justify-center gap-6 text-xl">
+      <a href="https://www.instagram.com/n4ve.666/" target="_blank" class="text-pink-500 hover:text-pink-600 transition">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:xevan19@gmail.com" class="text-gray-600 hover:text-gray-800 transition">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/evan-jamaq-9b7159283/" target="_blank" class="text-blue-700 hover:text-blue-800 transition">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <!-- Hak Cipta -->
+    <p class="text-xs text-gray-400">
+      All rights reserved &middot; Sistem Pakar AI Jurusan Kuliah
+    </p>
+  </div>
+</footer>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
-<script src="typing.js"></script>
+<script src="js/typing.js"></script>
+<script src="js/nav.js"></script>
 </body>
 </html>

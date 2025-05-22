@@ -101,7 +101,7 @@
         document.getElementById("rekomendasi").textContent = byMinat.rekomendasi;
         document.getElementById("deskripsi").textContent = "(Rekomendasi berdasarkan minat utama) " + byMinat.deskripsi;
       } else {
-        document.getElementById("rekomendasi").textContent = "Sebaiknya Tanyakan Ke Guru BK kalian sendirii";
+        document.getElementById("rekomendasi").textContent = "Sebaiknya Konsultasi ke Guru BK kalian sendiri";
         document.getElementById("deskripsi").textContent = "Silakan coba dengan pilihan minat dan kepribadian lainnya.";
       }
     }
