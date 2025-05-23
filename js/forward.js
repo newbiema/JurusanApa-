@@ -1,4 +1,4 @@
-
+// Ambil parameter dari URL, jika tidak ada maka gunakan default
     const params = new URLSearchParams(window.location.search);
     const nama = params.get("nama") || "Teman";
     const minat = params.get("minat");
@@ -6,7 +6,10 @@
     const gayaBelajar = params.get("gaya_belajar");
     const nilaiUnggulan = params.get("nilai_unggulan");
 
+    // Tampilkan nama pengguna di elemen dengan id "nama"
     document.getElementById("nama").textContent = nama;
+
+   // Daftar aturan untuk rekomendasi jurusan berdasarkan kombinasi kondisi
     const rules = [
       {
         kondisi: minat === "teknologi" && kepribadian === "analitis" && gayaBelajar === "praktik" && nilaiUnggulan === "matematika",
@@ -85,9 +88,10 @@
       }
     ];
 
-
+// Cari aturan yang sesuai dengan kondisi pengguna
     const hasil = rules.find(rule => rule.kondisi);
 
+    // Jika ditemukan aturan yang cocok, tampilkan rekomendasi dan deskripsi  
     if (hasil) {
       document.getElementById("rekomendasi").textContent = hasil.rekomendasi;
       document.getElementById("deskripsi").textContent = hasil.deskripsi;

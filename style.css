@@ -1,19 +1,20 @@
-  body {        
-          font-family: 'Poppins', sans-serif;
-  }
- 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-15px);
-    }
-  }
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
+body {        
+  font-family: 'Poppins', sans-serif;  /* Mengatur font utama halaman menjadi Poppins, dengan fallback font sans-serif */
+}
 
-  html {
-    scroll-behavior: smooth;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);         /* Pada awal dan akhir animasi, posisi elemen normal */
   }
+  50% {
+    transform: translateY(-15px);     /* Pada tengah animasi, elemen bergeser ke atas sebanyak 15px */
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite; /* Kelas ini memberikan animasi float dengan durasi 4 detik, gerakan halus, dan diulang terus-menerus */
+}
+
+html {
+  scroll-behavior: smooth;             /* Membuat perpindahan scroll pada halaman menjadi halus (smooth scrolling) ketika user klik anchor link */
+}

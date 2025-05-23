@@ -4,23 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Backward Chaining - Jurusan</title>
+
+  <!-- Import Tailwind CSS untuk styling -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Import font Poppins dari Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome untuk ikon -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- File CSS kustom -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-br from-blue-100 via-white to-blue-50 min-h-screen flex items-center justify-center p-6">
 
+<body class="bg-gradient-to-br from-blue-100 via-white to-blue-50 min-h-screen flex items-center justify-center p-6">
+  <!-- Container utama dengan latar putih, shadow, dan border rounded -->
   <div class="bg-white shadow-2xl rounded-3xl p-8 w-full max-w-md transition-all duration-300 border border-blue-100">
+
+    <!-- Header bagian atas dengan ikon dan judul -->
     <div class="flex flex-col items-center mb-6">
+      <!-- Ikon otak animasi pulse -->
       <i class="fas fa-brain text-blue-600 text-4xl mb-2 animate-pulse"></i>
+
+      <!-- Judul halaman -->
       <h1 class="text-3xl font-bold text-blue-700 text-center">Backward Chaining</h1>
+
+      <!-- Deskripsi singkat -->
       <p class="text-gray-500 text-sm text-center">Cari tahu kecocokanmu dengan jurusan kuliah 🎓</p>
     </div>
 
+    <!-- Label untuk dropdown jurusan -->
     <label for="jurusanSelect" class="block text-gray-700 mb-2 font-semibold">
       <i class="fas fa-graduation-cap mr-2 text-blue-500"></i> Pilih Jurusan:
     </label>
+
+    <!-- Dropdown pilihan jurusan -->
     <select id="jurusanSelect" class="w-full border border-gray-300 rounded-lg p-3 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-400 transition">
       <option value="Teknik Informatika">Teknik Informatika</option>
       <option value="Akuntansi">Akuntansi</option>
@@ -30,13 +49,17 @@
       <option value="Psikologi">Psikologi</option>
     </select>
 
-    <button onclick="checkJurusan()" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:to-blue-800 text-white py-3 rounded-xl text-lg font-semibold shadow-md transition-all duration-300 flex items-center justify-center gap-2">
+    <!-- Tombol untuk memulai pengecekan kecocokan jurusan -->
+    <button onclick="checkJurusan()" 
+            class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:to-blue-800 text-white py-3 rounded-xl text-lg font-semibold shadow-md transition-all duration-300 flex items-center justify-center gap-2">
       <i class="fas fa-search"></i> Cek Kecocokan
     </button>
 
+    <!-- Tempat untuk menampilkan pertanyaan atau hasil -->
     <div id="pertanyaan" class="text-center mt-8"></div>
   </div>
 
-<script src="js/backward.js"></script>  
+  <!-- File JavaScript eksternal untuk logic Backward Chaining -->
+  <script src="js/backward.js"></script>  
 </body>
 </html>
